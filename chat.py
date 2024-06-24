@@ -29,7 +29,7 @@ if prompt := st.chat_input("What is up?"):
         st.markdown(prompt)
 
     with st.chat_message("assistant"):
-        stream = client.chat.completions.create(
+        chat_completion = client.chat.completions.create(
             temperature=0,
             model=st.session_state["groq_model"],
             messages=[
@@ -38,7 +38,8 @@ if prompt := st.chat_input("What is up?"):
             ],
             stream=True,
         )
-        response = st.write_stream(stream)
+        response = chat_completion.choices[0].message.content
+        st.markdown(response)
     st.session_state.messages.append({"role": "assistant", "content": response})
 
 
