@@ -9,7 +9,7 @@ import warnings
 # Configure your environment
 os.environ['GROQ_API_KEY'] = st.secrets['GROQ_API_KEY'] 
 warnings.filterwarnings("ignore")
-st.title("RAG - AI 4 CI")
+st.title("LLM - AI 4 CI")
 
 client = Groq()
 
