@@ -36,7 +36,10 @@ if prompt := st.chat_input("What is up?"):
                 {"role": m["role"], "content": m["content"]}
                 for m in st.session_state.messages
             ],
-            stream=True,
+            stream=False,
+            stop=None,
+            top_p=1,
+            
         )
         response = chat_completion.choices[0].message.content
         st.markdown(response)
